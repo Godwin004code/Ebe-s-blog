@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+body {
+    width: 100%;
+    overflow-x: hidden;
+   // background: linear-gradient(180deg, #374151 0%, #111827 100%);
+   background-color: #374151;
+    //background-repeat: no-repeat;
+    font-family: 'Patrick Hand', cursive;
+
+}
+
+
+header {
+    display: flex;
+    width: 90%;
+    margin: 2rem auto;
+    justify-content: space-between;
+}
+
+.logo-header {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    h2 {
+        line-height: 2;
+    }
+    nav {
+        width: 50%;
+        line-height: 3;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            list-style: none;
+
+            a {
+                color: #FFFFFF;
+                text-decoration: none;
+                font-size: 18px;
+            }
+        }
+    }
+
+}
+
+
+.input-flex {
+    display: flex;
+    height: 40px;
+    background: rgba(31, 41, 55, 0.6);
+        border-radius: 100px;
+    width: 220px;
+    padding: 0 .5rem;
+    input {
+        
+        border: 0;
+        background-color: transparent;
+        color: white;
+        &:focus {
+            outline: 0;
+        }
+        &::placeholder {
+            opacity: .6;
+        }
+    }
+
+    .search {
+        margin: .8rem 1.5rem 0rem 0;
+        opacity: .6;
+        color: white;
+    }
+
+
+}
+.bars {
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .input-flex {
+        display: none;
+    }
+    .bars {
+        display: block;
+        color: white;
+        font-size: 30px;
+    }
+    
+    nav  {
+        display: none;
+        li {
+            transition: all ease-in 2000ms;
+            
+        }
+    }
+    nav.active {
+        display: block;
+        background-color: #313131;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        z-index: 20;
+        text-align: center;
+        ul {
+            flex-direction: column;
+            
+            li {
+                text-align: center;
+                font-size: 30px;
+                margin-top: 2rem;
+            }
+        }
+    }
+    .times {
+        color: wheat;
+        font-size: 20px;
+        position: absolute;
+        right: 10%;
+        top: -5%;
+    }
+    .logo-header {
+        width: 100%;
+        h2 {
+            line-height: 1.5;
+        }
+    }
+}
