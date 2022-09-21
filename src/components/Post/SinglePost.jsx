@@ -17,7 +17,7 @@ const SinglePost = () => {
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([])
   // https://evening-coast-52521.herokuapp.com
-    const url = "https://evening-coast-52521.herokuapp.com/api/blog/";
+    const url = "https://evening-coast-52521.herokuapp.com/api/blog";
 
    
 
