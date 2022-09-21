@@ -19,13 +19,7 @@ const SinglePost = () => {
   // https://evening-coast-52521.herokuapp.com
     const url = "https://evening-coast-52521.herokuapp.com/api/blog/";
 
-    const fetchComments = () => {
-      fetch(`https://evening-coast-52521.herokuapp.com/api/usercomment/comment/`).then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setComments(result)
-      })
-    }
+   
 
   const fetchPosts = () => {
     fetch(url, {
@@ -40,7 +34,6 @@ const SinglePost = () => {
 
   useEffect(() => {
     fetchPosts();
-    fetchComments()
   }, []);
 
   const temp = posts.filter((item) => item.slug === params.slug)
