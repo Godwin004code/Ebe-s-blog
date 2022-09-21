@@ -10,8 +10,7 @@ import HeroSkeleton from "../Skeleton/HeroSkeleton";
 const AllPost = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [count, setCount] = useState(2);
-
+// https://evening-coast-52521.herokuapp.com
   const url = "https://evening-coast-52521.herokuapp.com/api/blog";
 
   const fetchPosts = () => {

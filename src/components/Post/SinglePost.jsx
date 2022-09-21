@@ -2,12 +2,30 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import '../../styles/singlepost.scss';
+import Disqus from "disqus-react"
 
 const SinglePost = () => {
+  const disqusShortname = "http-localhost-3000-jfhpzwvmsn"
+
+    const disqusConfig = {
+      url: "https://fillial.vercel.app/",
+      identifier: "article-id",
+      title: "Article title"
+    }
     const params = useParams()
    
   const [posts, setPosts] = useState([]);
-    const url = "https://evening-coast-52521.herokuapp.com/api/blog";
+  const [comments, setComments] = useState([])
+  // https://evening-coast-52521.herokuapp.com
+    const url = "https://evening-coast-52521.herokuapp.com/api/blog/";
+
+    const fetchComments = () => {
+      fetch(`https://evening-coast-52521.herokuapp.com/api/usercomment/comment/`).then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setComments(result)
+      })
+    }
 
   const fetchPosts = () => {
     fetch(url, {
@@ -22,10 +40,10 @@ const SinglePost = () => {
 
   useEffect(() => {
     fetchPosts();
+    fetchComments()
   }, []);
 
   const temp = posts.filter((item) => item.slug === params.slug)
-  console.log(temp);
   return (
     <>
     
@@ -55,6 +73,10 @@ const SinglePost = () => {
             )
         })
     }
+    <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
     </>
   )
 }
